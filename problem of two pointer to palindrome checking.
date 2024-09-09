@@ -1,0 +1,37 @@
+///2 pointer is a technique to efficiently iterate over two sequences by maintaining two pointers that move towards each other to optimize complexity 0(n) avoiding 0(n*n).
+//problem of two pointer to palindrome checking.
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool isPalindrome(string s) {
+    int left = 0;
+    int right = s.length() - 1;
+
+    // Two pointers approach
+    while (left < right) {
+        // Check if the characters at the current pointers are the same
+        if (s[left] != s[right]) {
+            return false;  // If not, it's not a palindrome
+        }
+        left++;   // Move the left pointer to the right
+        right--;  // Move the right pointer to the left
+    }
+    return true;  // If all characters match, it's a palindrome
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+
+    if (isPalindrome(s)) {
+        cout << s << " is a palindrome!" << endl;
+    } else {
+        cout << s << " is not a palindrome!" << endl;
+    }
+    return 0;
+}
+/*Enter a string: ABBA
+ABBA is a palindrome!
+*/
